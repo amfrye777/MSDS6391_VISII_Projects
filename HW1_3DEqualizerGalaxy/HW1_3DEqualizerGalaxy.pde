@@ -143,7 +143,20 @@ void mousePressed() {
     (mouseX<width/2 + eqMain.diameter/3.5714) &
     (mouseY>height*0.68 - eqMain.diameter/3.5714) &
     (mouseY<height*0.68 + eqMain.diameter/3.5714)) {
-    println("You are inside the planet! We need to put code here to stop the current file, re-select the file, perform minim/meta/fft operations, and loop new file.");
+    println("You are inside the planet!");
+    selectInput("Select a file to process:", "fileSelected");
   }
-  println(mouseX, ", ", mouseY);
+  // println(mouseX, ", ", mouseY);
+}
+
+void fileSelected(File selection) {
+  String filename;
+  filename = selection.getAbsolutePath();
+  soundFile.pause();
+  soundFile = minim.loadFile(filename);
+  meta = soundFile.getMetaData();
+  // loop the file
+  soundFile.loop();
+  fft = new FFT( soundFile.bufferSize(), soundFile.sampleRate());
+  fft.logAverages(60, 5);
 }
