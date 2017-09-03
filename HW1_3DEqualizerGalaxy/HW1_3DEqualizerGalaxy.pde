@@ -26,8 +26,11 @@
  Modified Date : 9/1/2017
  Assignment    : MSDS6391 - HW 1
  Description   : Modifications to original Project include: 
-                    1) Orbiting Suns around focal planet
+                    1) Suns are now OOP
+                    2) Suns now orbit around focal planet at random speeds and differing X/Y/Z Axis
                     2) Song File Selector Interface
+                    3) A key press of 'm' will mute the song
+                    4) A key press of 'u; will unmute the song
  Resources     : 
  ******************************************************************************************/
  
@@ -40,14 +43,12 @@ AudioMetaData meta;
 FFT fft;
 Equalizer eqMain;
 Equalizer[] eqBackground;
-
+Sun redSun;
+Sun blueSun;
+Sun greenSun;
 
 int numEqBackground = 100;
 int fc = 0;
-
-float[] randomWPoint = new float[3];
-float[] randomHPoint = new float[3];
-float[] randomZPoint = new float[3];
 
 boolean metaDetails = true;
 
@@ -62,7 +63,6 @@ void setup()
 
   // loop the file
   soundFile.loop();
-  //soundFile.mute();
 
   fft = new FFT( soundFile.bufferSize(), soundFile.sampleRate());
   fft.logAverages(60, 5);
@@ -74,11 +74,10 @@ void setup()
     eqBackground[i] = new Equalizer(random(width/50, width/5), i%2, eqMain.diameter);
   }
 
-  for (int i = 0; i<randomWPoint.length; i++) {
-    randomWPoint[i] = random(0, width);
-    randomHPoint[i] = random(0, height);
-    randomZPoint[i] = random(-400, 400);
-  }
+  redSun = new Sun("Red");
+  blueSun = new Sun("Blue");
+  greenSun = new Sun("Green");
+
 }
 
 void draw() {
@@ -97,62 +96,29 @@ void draw() {
   if (metaDetails) {
     pushMatrix();
     translate(0, 0, fft.getAvg(1)/2);
+    textAlign(CENTER);
     text("Title: " + meta.title(), width/2, 0.25*height);
     text("Author: " + meta.author(), width/2, 0.25*height + 25); 
     text("Album: " + meta.album(), width/2, 0.25*height + 50);
     popMatrix();
   }
 
-  for (int i = 0; i<randomWPoint.length; i++) {
-    pushMatrix();
-    stroke(0);
-    translate(randomWPoint[i], randomHPoint[i], randomZPoint[i]);
-    noStroke();
-        
-    switch(i) {
-    case 0:
-      fill(0,0,255);
-      sphere(25);
-        break;
-    case 1:
-      fill(0,255,0);
-      sphere(25);
-        break;
-    case 2:
-      fill(255,0,0);
-      sphere(25);
-        break;
-    }
-    
-    translate(0,0,30);
-    fill(0);
-    textAlign(CENTER);
-    switch(i) {
-    case 0:
-      text("Blue",0,0);
-        break;
-    case 1:
-      text("Green",0,0);
-        break;
-    case 2:
-      text("Red",0,0);
-        break;
-    }
-    fill(255);
-    popMatrix();
-  }
+  pushMatrix();
+  translate(width/2, height*0.68, 0);
 
-  pointLight(0, 0, 255, randomWPoint[0], randomHPoint[0], randomZPoint[0]);
-  pointLight(0, 255, 0, randomWPoint[1], randomHPoint[1], randomZPoint[1]);
-  pointLight(255, 0, 0, randomWPoint[2], randomHPoint[2], randomZPoint[2]);
-
+  redSun.constructSun();
+  blueSun.constructSun();
+  greenSun.constructSun();
+  
+  redSun.constructLight();
+  blueSun.constructLight();
+  greenSun.constructLight();
 
   fill(255);
 
   fft.forward(soundFile.mix);
 
-  pushMatrix();
-  translate(width/2, height*0.68, 0);
+
   sphere(eqMain.diameter/3.5714);
   eqMain.Construct();
   popMatrix();
@@ -166,4 +132,9 @@ void draw() {
   }
  
  fc++;
+}
+
+void keyPressed(){
+  if (key == 'm') soundFile.mute();
+  if (key == 'u') soundFile.unmute();
 }
