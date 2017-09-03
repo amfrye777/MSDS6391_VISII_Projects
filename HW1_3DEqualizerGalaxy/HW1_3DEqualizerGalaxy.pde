@@ -4,36 +4,36 @@
  Create Date   : 8/13/2017
  Assignment    : MSDS6390 - HW 10
  Description   : This visualization is a 3D music equilizer. It is by no coincidence that the
-                 visual system resembles a galaxy filled with planets, orbital rings, and colorful
-                 light sources. Three small "suns", each red, green, and blue in color, render at
-                 random locations with each new project code run and illuminate the darkness,
-                 shedding light on the rhythmic, sychronized beat of the cosmos.
-                 
-                 The visualization includes various venues of interactivity. Firstly, moving the
-                 mouse cursor across the window causes the various equalizer rings to rotate to the
-                 user's liking. Secondly, holding down the left mouse button while moving the
-                 cursor moves the camera about the center planet and ring. Thirdly, clicking the
-                 right mouse button toggles the current song's title, author, and album details,
-                 which also pulsate to the beat of the music. If a different song is desired, its
-                 mp3 may be added to the project's data folder and the sound file name updated in
-                 the project's setup() method.
-                 
+ visual system resembles a galaxy filled with planets, orbital rings, and colorful
+ light sources. Three small "suns", each red, green, and blue in color, render at
+ random locations with each new project code run and illuminate the darkness,
+ shedding light on the rhythmic, sychronized beat of the cosmos.
+ 
+ The visualization includes various venues of interactivity. Firstly, moving the
+ mouse cursor across the window causes the various equalizer rings to rotate to the
+ user's liking. Secondly, holding down the left mouse button while moving the
+ cursor moves the camera about the center planet and ring. Thirdly, clicking the
+ right mouse button toggles the current song's title, author, and album details,
+ which also pulsate to the beat of the music. If a different song is desired, its
+ mp3 may be added to the project's data folder and the sound file name updated in
+ the project's setup() method.
+ 
  Resources     : https://processing.org/tutorials/p3d/
-                 https://github.com/ddf/Minim
+ https://github.com/ddf/Minim
  ******************************************************************************************/
 /****************************************************************************************** 
  Modified By   : Alex Fisher, Alex Frye
  Modified Date : 9/1/2017
  Assignment    : MSDS6391 - HW 1
  Description   : Modifications to original Project include: 
-                    1) Suns are now OOP
-                    2) Suns now orbit around focal planet at random speeds and differing X/Y/Z Axis
-                    2) Song File Selector Interface
-                    3) A key press of 'm' will mute the song
-                    4) A key press of 'u; will unmute the song
+ 1) Suns are now OOP
+ 2) Suns now orbit around focal planet at random speeds and differing X/Y/Z Axis
+ 2) Song File Selector Interface
+ 3) A key press of 'm' will mute the song
+ 4) A key press of 'u; will unmute the song
  Resources     : 
  ******************************************************************************************/
- 
+
 import ddf.minim.analysis.*;
 import ddf.minim.*;
 
@@ -56,7 +56,7 @@ void setup()
 {
   size(500, 500, P3D);
   noStroke();
-  
+
   minim = new Minim(this);
   soundFile = minim.loadFile("Ratatat - Wildcat.mp3", 1024);
   meta = soundFile.getMetaData();
@@ -77,22 +77,20 @@ void setup()
   redSun = new Sun("Red");
   blueSun = new Sun("Blue");
   greenSun = new Sun("Green");
-
 }
 
 void draw() {
   background(35);
 
   if (mousePressed & mouseButton == LEFT) camera(mouseX, mouseY, (height/2) / tan(PI/6), width/2, height/2, 0, 0, 1, 0);
-  else if (mousePressed & mouseButton == RIGHT & metaDetails == false & fc > 30){
+  else if (mousePressed & mouseButton == RIGHT & metaDetails == false & fc > 30) {
     metaDetails = true;
     fc = 0;
-  }
-  else if (mousePressed & mouseButton == RIGHT & metaDetails == true & fc > 30){
+  } else if (mousePressed & mouseButton == RIGHT & metaDetails == true & fc > 30) {
     metaDetails = false;
     fc = 0;
   }
-  
+
   if (metaDetails) {
     pushMatrix();
     translate(0, 0, fft.getAvg(1)/2);
@@ -109,7 +107,7 @@ void draw() {
   redSun.constructSun();
   blueSun.constructSun();
   greenSun.constructSun();
-  
+
   redSun.constructLight();
   blueSun.constructLight();
   greenSun.constructLight();
@@ -119,6 +117,7 @@ void draw() {
   fft.forward(soundFile.mix);
 
 
+
   sphere(eqMain.diameter/3.5714);
   eqMain.Construct();
   popMatrix();
@@ -126,15 +125,25 @@ void draw() {
   for (int i=0; i<numEqBackground; i++) {
     pushMatrix();
     translate(eqBackground[i].randTranslateX, eqBackground[i].randTranslateY, eqBackground[i].randTranslateZ);
-    if(i%10 == 0) sphere(eqBackground[i].diameter/3.5714);
+    if (i%10 == 0) sphere(eqBackground[i].diameter/3.5714);
     eqBackground[i].Construct();
     popMatrix();
   }
- 
- fc++;
+
+  fc++;
 }
 
-void keyPressed(){
+void keyPressed() {
   if (key == 'm') soundFile.mute();
   if (key == 'u') soundFile.unmute();
+}
+
+void mousePressed() {
+  if  ((mouseX>width/2 - eqMain.diameter/3.5714) &
+    (mouseX<width/2 + eqMain.diameter/3.5714) &
+    (mouseY>height*0.68 - eqMain.diameter/3.5714) &
+    (mouseY<height*0.68 + eqMain.diameter/3.5714)) {
+    println("You are inside the planet! We need to put code here to stop the current file, re-select the file, perform minim/meta/fft operations, and loop new file.");
+  }
+  println(mouseX, ", ", mouseY);
 }
