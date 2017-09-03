@@ -28,7 +28,7 @@
  Description   : Modifications to original Project include: 
  1) Suns are now OOP
  2) Suns now orbit around focal planet at random speeds and differing X/Y/Z Axis
- 2) Song File Selector Interface
+ 2) Song File Selector Interface when focal planet is pressed
  3) A key press of 'm' will mute the song
  4) A key press of 'u; will unmute the song
  Resources     : 
