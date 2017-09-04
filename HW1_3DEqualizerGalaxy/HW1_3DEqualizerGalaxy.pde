@@ -58,7 +58,7 @@ void setup()
   noStroke();
 
   minim = new Minim(this);
-  soundFile = minim.loadFile("Ratatat - Wildcat.mp3", 1024);
+  soundFile = minim.loadFile("Data//Ratatat - Wildcat.mp3", 1024);
   meta = soundFile.getMetaData();
 
   // loop the file
