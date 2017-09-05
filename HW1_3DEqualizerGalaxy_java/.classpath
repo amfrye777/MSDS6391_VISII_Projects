@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/core.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/gluegen-rt.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/gluegen-rt-natives-linux-aarch64.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/gluegen-rt-natives-linux-amd64.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/gluegen-rt-natives-linux-armv6hf.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/gluegen-rt-natives-linux-i586.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/gluegen-rt-natives-macosx-universal.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/gluegen-rt-natives-windows-amd64.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/gluegen-rt-natives-windows-i586.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/jogl-all.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/jogl-all-natives-linux-aarch64.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/jogl-all-natives-linux-amd64.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/jogl-all-natives-linux-armv6hf.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/jogl-all-natives-linux-i586.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/jogl-all-natives-macosx-universal.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/jogl-all-natives-windows-amd64.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files/EXE Files/processing-3.3.5/core/library/jogl-all-natives-windows-i586.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/core.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/gluegen-rt-natives-linux-amd64.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/gluegen-rt-natives-linux-armv6hf.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/gluegen-rt-natives-linux-i586.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/gluegen-rt-natives-macosx-universal.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/gluegen-rt-natives-windows-amd64.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/gluegen-rt-natives-windows-i586.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/gluegen-rt.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/jogl-all-natives-linux-amd64.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/jogl-all-natives-linux-armv6hf.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/jogl-all-natives-linux-i586.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/jogl-all-natives-macosx-universal.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/jogl-all-natives-windows-amd64.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/jogl-all-natives-windows-i586.jar"/>
-	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/jogl-all.jar"/>
-	<classpathentry kind="lib" path="/Users/alexnfisher14/Dropbox/SMU _ ALEX/Documents/Processing/libraries/minim/library/jl1.0.1.jar"/>
-	<classpathentry kind="lib" path="/Users/alexnfisher14/Dropbox/SMU _ ALEX/Documents/Processing/libraries/minim/library/jsminim.jar"/>
-	<classpathentry kind="lib" path="/Users/alexnfisher14/Dropbox/SMU _ ALEX/Documents/Processing/libraries/minim/library/minim.jar"/>
-	<classpathentry kind="lib" path="/Users/alexnfisher14/Dropbox/SMU _ ALEX/Documents/Processing/libraries/minim/library/mp3spi1.9.5.jar"/>
-	<classpathentry kind="lib" path="/Users/alexnfisher14/Dropbox/SMU _ ALEX/Documents/Processing/libraries/minim/library/tritonus_aos.jar"/>
-	<classpathentry kind="lib" path="/Users/alexnfisher14/Dropbox/SMU _ ALEX/Documents/Processing/libraries/minim/library/tritonus_share.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/School/SMU/2017 Fall/MSDS 6391 - Visualization II/MSDS6391_VISII_Projects/HW1_3DEqualizerGalaxy_java/External Libraries/jl1.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/School/SMU/2017 Fall/MSDS 6391 - Visualization II/MSDS6391_VISII_Projects/HW1_3DEqualizerGalaxy_java/External Libraries/jsminim.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/School/SMU/2017 Fall/MSDS 6391 - Visualization II/MSDS6391_VISII_Projects/HW1_3DEqualizerGalaxy_java/External Libraries/minim.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/School/SMU/2017 Fall/MSDS 6391 - Visualization II/MSDS6391_VISII_Projects/HW1_3DEqualizerGalaxy_java/External Libraries/mp3spi1.9.5.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/School/SMU/2017 Fall/MSDS 6391 - Visualization II/MSDS6391_VISII_Projects/HW1_3DEqualizerGalaxy_java/External Libraries/tritonus_aos.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/School/SMU/2017 Fall/MSDS 6391 - Visualization II/MSDS6391_VISII_Projects/HW1_3DEqualizerGalaxy_java/External Libraries/tritonus_share.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
