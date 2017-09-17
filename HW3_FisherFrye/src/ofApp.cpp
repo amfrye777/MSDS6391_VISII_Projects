@@ -1,22 +1,24 @@
 #include "ofApp.h"
 
+BarChartAvgOverUnder barChartData("AvgSalOverUnderByOCCFAMT.csv");
+
 //--------------------------------------------------------------
 void ofApp::setup(){
-	ofSetColor(0);
+	ofSetColor(125);
 	ofFill();
-	
-	loadData barChartData("AvgSalOverUnderByOCCFAMT.csv");
+	barChartData.setup();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	barChartData.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	ofBackground(255);
-	ofRect(0, 0, 100, 100);
+	ofBackground(0);
+	barChartData.draw();
+	
 }
 
 //--------------------------------------------------------------

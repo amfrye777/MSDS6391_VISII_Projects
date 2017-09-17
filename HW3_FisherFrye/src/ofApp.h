@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "loadData.h"
+#include "BarChartAvgOverUnder.h"
 
 
 
@@ -25,4 +25,6 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		float xpos;
+
+
 };
