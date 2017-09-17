@@ -19,6 +19,8 @@ void BarChartAvgOverUnder::setup()
 	xOffset = ofGetWidth() / 6;
 	yOffset = ofGetHeight() / 6;
 	xBarPad = (ofGetWidth() - xOffset*2) / 75;
+	maxBarHeight = ofGetHeight() / 2 - yOffset;
+	barWidth = ((ofGetWidth() - (xOffset*2)) - (displayCount * xBarPad)) / displayCount;
 	
 	colorCycle[0].r = 129;
 	colorCycle[0].g = 199;
@@ -65,8 +67,12 @@ void BarChartAvgOverUnder::update()
 void BarChartAvgOverUnder::draw()
 {
 		//Print Title
+	ofSetColor(125);
+	ofFill();
 	ofDrawBitmapString("Avg. Sal. Over/Under Ind. by OCCFAMT", ofGetWidth()/2-xOffset, yOffset);
 	drawLines();
+	drawTicks();
+	drawBars();
 }
 
 
@@ -81,7 +87,42 @@ void BarChartAvgOverUnder::drawLines()
 
 }
 
+void BarChartAvgOverUnder::drawTicks()
+{
+	for (int i = -4; i<5; i++) {
+		ofLine(xOffset - ofGetWidth() / 144, ofGetHeight() / 2 + (i * maxBarHeight / 4),xOffset - ofGetWidth() / 288,ofGetHeight() / 2 + (i * maxBarHeight / 4));
+		ofDrawBitmapString(round(maxDataVal / 4.0 * i), xOffset - 55, ofGetHeight() / 2 - (i * maxBarHeight / 4) - ofGetWidth() / 600);
+	}
 
+}
+
+void BarChartAvgOverUnder::drawBars()
+{
+
+	int colorPosition = 0;
+
+	for (int i = 0; i<displayCount; i++) {
+		float rectX = xOffset + (xBarPad*(i + 1)) + (barWidth*i);
+		float rectY = ofGetHeight() / 2;
+		float rectHeight;
+
+		if (colorPosition>8) colorPosition = 0;
+		ofSetColor(colorCycle[colorPosition]);
+		ofFill();
+		
+		if (AvgSalOverUnderByOCCFAMT[i].OverUnderValue >= 0) {
+			rectHeight = -map(AvgSalOverUnderByOCCFAMT[i].OverUnderValue, 0, maxDataVal, 0, maxBarHeight);
+			ofRect(rectX, rectY, barWidth, rectHeight);
+		}
+		if (AvgSalOverUnderByOCCFAMT[i].OverUnderValue<0) {
+			rectHeight = map(AvgSalOverUnderByOCCFAMT[i].OverUnderValue, 0, -maxDataVal, 0, maxBarHeight);
+			ofRect(rectX, rectY, barWidth, rectHeight);
+		}
+
+		colorPosition++;
+	}
+
+}
 
 void BarChartAvgOverUnder::loadData(std::string fileName)
 {
@@ -114,12 +155,19 @@ void BarChartAvgOverUnder::loadData(std::string fileName)
 		if (OverUnderString != "") AvgSalOverUnderByOCCFAMT[i].OverUnderValue = std::stod(OverUnderString);
 		else AvgSalOverUnderByOCCFAMT[i].OverUnderValue = 0;
 
-		if (maxBarHeight < AvgSalOverUnderByOCCFAMT[i].OverUnderValue) maxBarHeight = AvgSalOverUnderByOCCFAMT[i].OverUnderValue;
+		if (maxDataVal < abs(AvgSalOverUnderByOCCFAMT[i].OverUnderValue)) maxDataVal = abs(AvgSalOverUnderByOCCFAMT[i].OverUnderValue);
 
 		//print struct data for debug
 		std::cout << i << "; "<<AvgSalOverUnderByOCCFAMT[i].OCCFAMT << ", " << AvgSalOverUnderByOCCFAMT[i].OverUnderValue << '\n';
 		i++;
 	}
 	file.close();
+}
 
+float BarChartAvgOverUnder::map(float value,
+	float istart,
+	float istop,
+	float ostart,
+	float ostop) {
+	return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
 }
