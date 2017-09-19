@@ -128,40 +128,42 @@ void BarChartAvgOverUnder::loadData(std::string fileName)
 {
 
 	//print relative file path for debug
-	std::cout << "..\\data\\" + fileName << std::endl;
+	std::cout << "..\\bin\\data\\" + fileName << std::endl;
 
 	//load file
-	std::ifstream file("..\\data\\" + fileName);
+	std::ifstream file("..\\bin\\data\\" + fileName);
 
 	//display Error text if file not good for any reason
 	if (!file.good())	std::cout << "ERROR" << '\n';
-
-	//temp stack string created for overUnder, such that we can then convert todouble after reading.
-	std::string OverUnderString;
-
-	//skip header record
-	std::string s;
-	getline(file, s);
-
-	//loop through to end of file
-	int i = 0;
-	while (!file.eof())
+	else
 	{
-		//parse comma delimited line first by comma then by line feed
-		getline(file, AvgSalOverUnderByOCCFAMT[i].OCCFAMT, ',');
-		getline(file, OverUnderString, '\n');
+		//temp stack string created for overUnder, such that we can then convert todouble after reading.
+		std::string OverUnderString;
 
-		// convert OverUnder to double with "stod", if "" then 0
-		if (OverUnderString != "") AvgSalOverUnderByOCCFAMT[i].OverUnderValue = std::stod(OverUnderString);
-		else AvgSalOverUnderByOCCFAMT[i].OverUnderValue = 0;
+		//skip header record
+		std::string s;
+		getline(file, s);
 
-		if (maxDataVal < abs(AvgSalOverUnderByOCCFAMT[i].OverUnderValue)) maxDataVal = abs(AvgSalOverUnderByOCCFAMT[i].OverUnderValue);
+		//loop through to end of file
+		int i = 0;
+		while (!file.eof())
+		{
+			//parse comma delimited line first by comma then by line feed
+			getline(file, AvgSalOverUnderByOCCFAMT[i].OCCFAMT, ',');
+			getline(file, OverUnderString, '\n');
 
-		//print struct data for debug
-		std::cout << i << "; "<<AvgSalOverUnderByOCCFAMT[i].OCCFAMT << ", " << AvgSalOverUnderByOCCFAMT[i].OverUnderValue << '\n';
-		i++;
+			// convert OverUnder to double with "stod", if "" then 0
+			if (OverUnderString != "") AvgSalOverUnderByOCCFAMT[i].OverUnderValue = std::stod(OverUnderString);
+			else AvgSalOverUnderByOCCFAMT[i].OverUnderValue = 0;
+
+			if (maxDataVal < abs(AvgSalOverUnderByOCCFAMT[i].OverUnderValue)) maxDataVal = abs(AvgSalOverUnderByOCCFAMT[i].OverUnderValue);
+
+			//print struct data for debug
+			std::cout << i << "; " << AvgSalOverUnderByOCCFAMT[i].OCCFAMT << ", " << AvgSalOverUnderByOCCFAMT[i].OverUnderValue << '\n';
+			i++;
+		}
+		file.close();
 	}
-	file.close();
 }
 
 float BarChartAvgOverUnder::map(float value,
