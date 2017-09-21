@@ -31,6 +31,10 @@ public:
 	void drawLines();
 	void drawTicks();
 	void drawBars();
+	void setDisplayCount(int adj);
+
+	void BarChartAvgOverUnder::hoverDisplay();
+	void BarChartAvgOverUnder::displayValue(float rectX, float rectY, float barWidth, float rectHeight, std::string OCCFAMT, float AvgSalOverUnder);
 
 	void setup();
 	void update();

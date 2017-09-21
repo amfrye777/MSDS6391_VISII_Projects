@@ -73,6 +73,7 @@ void BarChartAvgOverUnder::draw()
 	drawLines();
 	drawTicks();
 	drawBars();
+	hoverDisplay();
 }
 
 
@@ -124,14 +125,62 @@ void BarChartAvgOverUnder::drawBars()
 
 }
 
+void BarChartAvgOverUnder::hoverDisplay() {
+	for (int i = 0; i < displayCount; i++) {
+		float rectX = xOffset + (xBarPad*(i + 1)) + (barWidth*i);
+		float rectY = ofGetHeight() / 2;
+		float rectHeight;
+
+		if (AvgSalOverUnderByOCCFAMT[i].OverUnderValue >= 0) {
+			rectHeight = -map(AvgSalOverUnderByOCCFAMT[i].OverUnderValue, 0, maxDataVal, 0, maxBarHeight);
+			displayValue(rectX, rectY, barWidth, rectHeight, AvgSalOverUnderByOCCFAMT[i].OCCFAMT, AvgSalOverUnderByOCCFAMT[i].OverUnderValue);
+		}
+		if (AvgSalOverUnderByOCCFAMT[i].OverUnderValue < 0) {
+			rectHeight = map(AvgSalOverUnderByOCCFAMT[i].OverUnderValue, 0, -maxDataVal, 0, maxBarHeight);
+			displayValue(rectX, rectY, barWidth, rectHeight, AvgSalOverUnderByOCCFAMT[i].OCCFAMT, AvgSalOverUnderByOCCFAMT[i].OverUnderValue);
+		}
+	}
+}
+
+void BarChartAvgOverUnder::displayValue(float rectX, float rectY, float barWidth, float rectHeight, std::string OCCFAMT, float AvgSalOverUnder) {
+	ofSetColor(255);
+	ofFill();
+
+	std::string text = OCCFAMT + "\n" + std::to_string(AvgSalOverUnder);
+
+	POINT p;
+	BOOL result = GetCursorPos(&p); // works in full screen, how do I do this for the window??
+	if (result)
+	{
+		//debug print x,y
+		//std::cout << p.x << ", " << p.y << std::endl;
+
+		if (AvgSalOverUnder >= 0) {
+			if ((p.x >= rectX) & (p.x <= rectX + barWidth)     &
+				(p.y <= rectY) & (p.y >= rectY + rectHeight)
+				) {
+
+				ofDrawBitmapString(text, p.x, p.y);
+			}
+		}
+		if (AvgSalOverUnder<0) {
+			if ((p.x >= rectX) & (p.x <= rectX + barWidth)     &
+				(p.y >= rectY) & (p.y <= rectY + rectHeight)
+				) {
+				ofDrawBitmapString(text, p.x, p.y);
+			}
+		}
+	}
+}
+
 void BarChartAvgOverUnder::loadData(std::string fileName)
 {
 
 	//print relative file path for debug
-	std::cout << "..\\bin\\data\\" + fileName << std::endl;
+	std::cout << "../bin/data/" + fileName << std::endl;
 
 	//load file
-	std::ifstream file("..\\bin\\data\\" + fileName);
+	std::ifstream file("../bin/data/" + fileName);
 
 	//display Error text if file not good for any reason
 	if (!file.good())	std::cout << "ERROR" << '\n';
@@ -164,6 +213,11 @@ void BarChartAvgOverUnder::loadData(std::string fileName)
 		}
 		file.close();
 	}
+}
+
+void BarChartAvgOverUnder::setDisplayCount(int adj) {
+	if ((displayCount + adj)<=62 & (displayCount + adj) >0) displayCount += adj;
+	barWidth = ((ofGetWidth() - (xOffset * 2)) - (displayCount * xBarPad)) / displayCount;
 }
 
 float BarChartAvgOverUnder::map(float value,

@@ -7,6 +7,7 @@ void ofApp::setup(){
 	ofSetColor(125);
 	ofFill();
 	barChartData.setup();
+	
 }
 
 //--------------------------------------------------------------
@@ -19,11 +20,20 @@ void ofApp::draw(){
 	ofBackground(0);
 	barChartData.draw();
 	
+		//print instructions
+	ofSetColor(125);
+	ofFill(); 
+	ofDrawBitmapString("Arrow Key Up/Down: Add/Minus 1 Bar\nArrow Key Right/Left: Add/Minus 5 Bars\nMaximize for correctly mapped hover text values", 
+						ofGetWidth() - 400, 
+						ofGetHeight() - 100);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+	if (key == OF_KEY_UP)			barChartData.setDisplayCount(1);
+	else if (key == OF_KEY_DOWN)	barChartData.setDisplayCount(-1);
+	else if (key == OF_KEY_RIGHT)	barChartData.setDisplayCount(5);
+	else if (key == OF_KEY_LEFT)	barChartData.setDisplayCount(-5);
 }
 
 //--------------------------------------------------------------
