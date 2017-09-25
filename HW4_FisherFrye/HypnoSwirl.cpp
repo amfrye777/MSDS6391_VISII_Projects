@@ -21,7 +21,7 @@ void HypnoSwirl::draw()
 	ofTranslate(x, y);
 	ofSetCircleResolution(100);
 	c = 255;
-	float rSub = map(mouseX, 0, ofGetWidth(), 5, 20);
+	float rSub = map(mouseX/6, 0, ofGetWidth(), 5, 20);
 	float aAdd = map(mouseY, 0, ofGetHeight(), PI / 22.0 , PI / 48.0);
 	cic(radius, rSub, angle, aAdd);
 	angle += (PI / 100.0) * dir;
@@ -31,7 +31,7 @@ void HypnoSwirl::draw()
 void HypnoSwirl::cic(float radius, float rSub, float angle, float aAdd) {
 	ofPushMatrix();
 	do {
-		ofSetColor(c);
+        ofSetColor(c, 66, 66);
 		ofFill();
 		c = 255 - c;
 		ofCircle(0, 0, radius / 2);
