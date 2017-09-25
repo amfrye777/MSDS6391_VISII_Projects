@@ -10,15 +10,22 @@ public:
 	HypnoSwirl(int radius, int dir);
 	
 	void update();
-	void draw();
+	void draw(float mapaAddMin, float mapaAddMax, float angleOffset);
 	void updateMouse(int mouseX, int mouseY);
 	void setLoc(float x, float y);
+	
+	bool checkWallHitX();
+	bool checkWallHitY();
+
+	float x;
+	float y;
+	int radius;
+
+	float speedX;
+	float gravityY;
 
 private:
-	int radius;
 	int dir;
-	float x= -1000;		// default off the screen. re-init in setup().
-	float y= -1000;		// default off the screen. re-init in setup().
 	int mouseX = 0;
 	int mouseY = 0;
 
@@ -27,10 +34,5 @@ private:
 
 	void cic(float radius, float rSub, float angle, float aAdd);
 
-	float map(float value,
-		float istart,
-		float istop,
-		float ostart,
-		float ostop);
 };
 

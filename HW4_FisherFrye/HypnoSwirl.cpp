@@ -12,19 +12,19 @@ radius(radius), dir(dir)
 
 void HypnoSwirl::update()
 {
-
+	
 }
 
-void HypnoSwirl::draw()
+void HypnoSwirl::draw(float mapaAddMin, float mapaAddMax, float angleOffset)
 {
 	ofPushMatrix();
 	ofTranslate(x, y);
 	ofSetCircleResolution(100);
 	c = 255;
-	float rSub = map(mouseX/6, 0, ofGetWidth(), 5, 20);
-	float aAdd = map(mouseY, 0, ofGetHeight(), PI / 22.0 , PI / 48.0);
+	float rSub = ofMap(mouseX/5, 0, ofGetWidth(), radius/30, radius / 5);
+	float aAdd = ofMap(mouseY, 0, ofGetHeight(), mapaAddMin, mapaAddMax);
 	cic(radius, rSub, angle, aAdd);
-	angle += (PI / 100.0) * dir;
+	angle += (angleOffset) * dir;
 	ofPopMatrix();
 }
 
@@ -57,10 +57,28 @@ void HypnoSwirl::updateMouse(int mouseX, int mouseY)
 	this->mouseY = mouseY;
 }
 
-float HypnoSwirl::map(float value,
-	float istart,
-	float istop,
-	float ostart,
-	float ostop) {
-	return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
+bool HypnoSwirl::checkWallHitX() {
+	bool boolval;
+
+	for (int i = 0; i < 10; i++) {
+		if ((x - radius <0) | (x + radius >ofGetWidth())) {
+			boolval = true;
+		}
+		else boolval = false;
+	}
+
+	return boolval;
+}
+
+bool HypnoSwirl::checkWallHitY() {
+	bool boolval;
+
+	for (int i = 0; i < 10; i++) {
+		if ((y - radius <0) | (y + radius >ofGetHeight())) {
+			boolval = true;
+		}
+		else boolval = false;
+	}
+
+	return boolval;
 }

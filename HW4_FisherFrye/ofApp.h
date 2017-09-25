@@ -23,6 +23,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+		bool checkOverLaps(HypnoSwirl hyp1, HypnoSwirl hyp2);
 
 		
 };
