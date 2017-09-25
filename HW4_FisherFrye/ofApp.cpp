@@ -1,19 +1,19 @@
 #include "ofApp.h"
 
-HypnoSwirl hypCenter(150);
-HypnoSwirl hypTopLeft(75);
-HypnoSwirl hypTopRight(75);
-HypnoSwirl hypBotLeft(75);
-HypnoSwirl hypBotRight(75);
+HypnoSwirl hypCenter(400,1);
+HypnoSwirl hypTopLeft(150,-1);
+HypnoSwirl hypTopRight(150,-1);
+HypnoSwirl hypBotLeft(150, -1);
+HypnoSwirl hypBotRight(150, -1);
 
 //--------------------------------------------------------------
 void ofApp::setup(){
 
 		hypCenter.setLoc((ofGetWidth() / 2),		(ofGetHeight() / 2));
-		hypTopLeft.setLoc((ofGetWidth() / 4),		(ofGetHeight() / 4));
-		hypTopRight.setLoc((ofGetWidth() / 4) * 3,	(ofGetHeight() / 4));
-		hypBotLeft.setLoc((ofGetWidth() / 4),		(ofGetHeight() / 4) * 3);
-		hypBotRight.setLoc((ofGetWidth() / 4) * 3,	(ofGetHeight() / 4) * 3);
+		hypTopLeft.setLoc((ofGetWidth() / 5),		(ofGetHeight() / 5));
+		hypTopRight.setLoc((ofGetWidth() / 5) * 4,	(ofGetHeight() / 5));
+		hypBotLeft.setLoc((ofGetWidth() / 5),		(ofGetHeight() / 5) * 4);
+		hypBotRight.setLoc((ofGetWidth() / 5) * 4,	(ofGetHeight() / 5) * 4);
 }
 
 //--------------------------------------------------------------
