@@ -6,7 +6,8 @@ HypnoSwirl hypTopRight(150,-1);
 HypnoSwirl hypBotLeft(150, -1);
 HypnoSwirl hypBotRight(150, -1);
 
-std::vector<HypnoSwirl> hypTinyMovers(10, HypnoSwirl(30, 1));
+int numMovers = 30;
+std::vector<HypnoSwirl> hypTinyMovers(numMovers, HypnoSwirl(30, 1));
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -21,7 +22,7 @@ void ofApp::setup(){
 	hypBotLeft.setLoc((ofGetWidth() / 5),		(ofGetHeight() / 5) * 4);
 	hypBotRight.setLoc((ofGetWidth() / 5) * 4,	(ofGetHeight() / 5) * 4);
 
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < numMovers; i++) {
 		hypTinyMovers[i].setLoc(rand()%ofGetWidth(),rand()%ofGetHeight());
 	}
 
@@ -31,7 +32,7 @@ void ofApp::setup(){
 		cntErrors = 0; //resets errors to zero, such that if the conditions below are not met it will jump out of the loop
 
 		//wall checks
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < numMovers; i++) {
 			if (hypTinyMovers[i].checkWallHitX() | hypTinyMovers[i].checkWallHitY()) {
 				hypTinyMovers[i].setLoc(rand() % ofGetWidth(), rand() % ofGetHeight());
 				cntErrors++;
@@ -40,8 +41,8 @@ void ofApp::setup(){
 
 
 			//Tiny ball checks
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 10; j++) {
+		for (int i = 0; i < numMovers; i++) {
+			for (int j = 0; j < numMovers; j++) {
 				if (i != j) {				// skip if balls are matches
 					
 					if (checkOverLaps(hypTinyMovers[i], hypTinyMovers[j])) {
@@ -53,7 +54,7 @@ void ofApp::setup(){
 		}
 		
 			// Large ball checks
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < numMovers; i++) {
 			if (checkOverLaps(hypTinyMovers[i], hypCenter)) {
 				hypTinyMovers[i].setLoc(rand() % ofGetWidth(), rand() % ofGetHeight());
 				cntErrors++;
@@ -76,7 +77,7 @@ void ofApp::setup(){
 			}
 		}
 
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < numMovers; i++) {
 			std::cout << cntErrors << ", " << hypTinyMovers[i].x << ", " << hypTinyMovers[i].y << std::endl;
 		}
 
@@ -86,7 +87,7 @@ void ofApp::setup(){
 	*	Initialize Speed					      *
 	**********************************************/
 
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < numMovers; i++) {
 		if (i % 2 == 0)	hypTinyMovers[i].speedX = ((rand() % 5) + 1)/2.1;
 		else		    hypTinyMovers[i].speedX = (((rand() % 5) + 1)*-1)/2.1;
 
@@ -101,7 +102,7 @@ void ofApp::update(){
 	/**********************************************
 	*	Move Tinys with speed and gravity	      *
 	**********************************************/
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < numMovers; i++) {
 		hypTinyMovers[i].setLoc(hypTinyMovers[i].x + hypTinyMovers[i].speedX, hypTinyMovers[i].y + hypTinyMovers[i].gravityY);
 	}
 
@@ -110,7 +111,7 @@ void ofApp::update(){
 	**********************************************/
 		
 	//wall checks
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < numMovers; i++) {
 		if (hypTinyMovers[i].checkWallHitX()) {		//x check flip x direction
 			hypTinyMovers[i].speedX *= -1;
 		}
@@ -122,8 +123,8 @@ void ofApp::update(){
 
 
 	//Tiny ball checks - Both bounce diagnally
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++) {
+	for (int i = 0; i < numMovers; i++) {
+		for (int j = 0; j < numMovers; j++) {
 			if (i != j) {				// skip if balls are matches
 
 				if (checkOverLaps(hypTinyMovers[i], hypTinyMovers[j])) {
@@ -136,7 +137,7 @@ void ofApp::update(){
 	}
 
 	// Large ball checks - tiny bounce diagnally
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < numMovers; i++) {
 		if (checkOverLaps(hypTinyMovers[i], hypCenter)) {
 			hypTinyMovers[i].speedX *= -1;
 			hypTinyMovers[i].gravityY *= -1;
@@ -173,7 +174,7 @@ void ofApp::draw(){
 	hypBotLeft.draw(PI / 2.0, PI / 30.0, PI / 200.0);
 	hypBotRight.draw(PI / 2.0, PI / 30.0, PI / 200.0);
 	
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < numMovers; i++) {
 		hypTinyMovers[i].draw(PI / 2.0, PI / 48.0, PI / 50);
 	}
 }
@@ -197,7 +198,7 @@ void ofApp::mouseMoved(int x, int y ){
 	hypBotLeft.updateMouse(x, y);
 	hypBotRight.updateMouse(x, y);
 
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < numMovers; i++) {
 		hypTinyMovers[i].updateMouse(x, y);
 	}
 }
@@ -252,7 +253,6 @@ bool ofApp::checkOverLaps(HypnoSwirl hyp1, HypnoSwirl hyp2) {
 
 	float distance = sqrt(distancex + distancey);
 
-	//check tiny ball x,y range
 	if (distance <= (hyp1.radius + hyp2.radius)/2) {
 		boolval = true;
 	}
