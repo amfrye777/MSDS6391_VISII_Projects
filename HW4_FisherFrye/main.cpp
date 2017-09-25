@@ -9,8 +9,10 @@ Description   : We have reproduced and modified a visualization, inspired by an 
 
 				Changes to original include:
 					1)OOP design
-					2)5 Hypnotic Swirls vs 1
+					2)5 Hypnotic Stationary Swirls vs 1
 					3)Multiple Swirl Directions
+					4)Object Array of "Moving" Swirls, which bounce off walls and the stationary Swirls
+					5)Colors are RGB vs Grayscale
 
 Resources     : https://www.openprocessing.org/sketch/164071
 ******************************************************************************************/
