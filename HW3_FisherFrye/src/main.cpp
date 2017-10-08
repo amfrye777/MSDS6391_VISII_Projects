@@ -1,3 +1,12 @@
+/******************************************************************************************
+ Title         : Dynamic Memory Allocation
+ Created By    : Alex Fisher, Alex Frye
+ Create Date   : 10/8/2017
+ Assignment    : MSDS6391 - HW 5
+ Description   :
+ Resources     :
+ ******************************************************************************************/
+
 #include "ofMain.h"
 #include "ofApp.h"
 

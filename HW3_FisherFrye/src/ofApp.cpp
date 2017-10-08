@@ -43,7 +43,12 @@ void ofApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-
+    //update x,y mouse locations within each object as the mouse moves
+    hypCenter.updateMouse(x, y);
+    hypTopLeft.updateMouse(x, y);
+    hypTopRight.updateMouse(x, y);
+    hypBotLeft.updateMouse(x, y);
+    hypBotRight.updateMouse(x, y);
 }
 
 //--------------------------------------------------------------

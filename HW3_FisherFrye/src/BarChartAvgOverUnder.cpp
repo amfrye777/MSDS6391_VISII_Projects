@@ -148,26 +148,23 @@ void BarChartAvgOverUnder::displayValue(float rectX, float rectY, float barWidth
 
 	std::string text = OCCFAMT + "\n" + std::to_string(AvgSalOverUnder);
 
-	POINT p;
-	BOOL result = GetCursorPos(&p); // works in full screen, how do I do this for the window??
-	if (result)
 	{
 		//debug print x,y
 		//std::cout << p.x << ", " << p.y << std::endl;
 
 		if (AvgSalOverUnder >= 0) {
-			if ((p.x >= rectX) & (p.x <= rectX + barWidth)     &
-				(p.y <= rectY) & (p.y >= rectY + rectHeight)
+			if ((mouseX >= rectX) & (mouseX <= rectX + barWidth)     &
+				(mouseY <= rectY) & (mouseY >= rectY + rectHeight)
 				) {
 
-				ofDrawBitmapString(text, p.x, p.y);
+				ofDrawBitmapString(text, mouseX, mouseY);
 			}
 		}
 		if (AvgSalOverUnder<0) {
-			if ((p.x >= rectX) & (p.x <= rectX + barWidth)     &
-				(p.y >= rectY) & (p.y <= rectY + rectHeight)
+			if ((mouseX >= rectX) & (mouseX <= rectX + barWidth)     &
+				(mouseY >= rectY) & (mouseY <= rectY + rectHeight)
 				) {
-				ofDrawBitmapString(text, p.x, p.y);
+				ofDrawBitmapString(text, mouseX, mouseY);
 			}
 		}
 	}
@@ -177,10 +174,10 @@ void BarChartAvgOverUnder::loadData(std::string fileName)
 {
 
 	//print relative file path for debug
-	std::cout << "../bin/data/" + fileName << std::endl;
+	std::cout << "..\\bin\\data\\" + fileName << std::endl;
 
 	//load file
-	std::ifstream file("../bin/data/" + fileName);
+	std::ifstream file("..\\bin\\data\\" + fileName);
 
 	//display Error text if file not good for any reason
 	if (!file.good())	std::cout << "ERROR" << '\n';
