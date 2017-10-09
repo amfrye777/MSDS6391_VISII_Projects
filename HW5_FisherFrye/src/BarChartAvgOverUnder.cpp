@@ -21,10 +21,13 @@ void BarChartAvgOverUnder::setup()
 {
 	xOffset = ofGetWidth() / 6;
 	yOffset = ofGetHeight() / 6;
-	xBarPad = (ofGetWidth() - xOffset*2) / 75;
+    xBarPad = ((ofGetWidth() - xOffset * 2) / 200) - (displayCount / 60);
+
 	maxBarHeight = ofGetHeight() / 2 - yOffset;
 	barWidth = ((ofGetWidth() - (xOffset*2)) - (displayCount * xBarPad)) / displayCount;
-	
+
+
+
 	colorCycle[0].r = 129;
 	colorCycle[0].g = 199;
 	colorCycle[0].b = 132;
@@ -64,6 +67,15 @@ void BarChartAvgOverUnder::setup()
 
 void BarChartAvgOverUnder::update()
 {
+	yOffset = ofGetHeight() / 6;
+	xBarPad = ((ofGetWidth() - xOffset * 2) / 200) - (displayCount / 60);
+	if (xBarPad < .5) xBarPad = .5;
+
+	maxBarHeight = ofGetHeight() / 2 - yOffset;
+	barWidth = ((ofGetWidth() - (xOffset * 2)) - (displayCount * xBarPad)) / displayCount;
+	
+	
+
 
 }
 
@@ -177,21 +189,23 @@ void BarChartAvgOverUnder::loadData(std::string fileName)
 {
     
     //print relative file path for debug
-    //std::cout << "..//bin//data//" + fileName << std::endl;
+    std::cout << "..//bin//data//" + fileName << std::endl;
     
     //load file
-    //std::ifstream file("..//bin//data//" + fileName);
+    std::ifstream file("..//bin//data//" + fileName);
     
 	//print relative file path for debug
-	std::cout << "..//..//..//..//bin//data//" + fileName << std::endl;
+	//std::cout << "..//..//..//..//bin//data//" + fileName << std::endl;
 
 	//load file
-	std::ifstream file("..//..//..//..//bin//data//" + fileName);
+	//std::ifstream file("..//..//..//..//bin//data//" + fileName);
 
 	//display Error text if file not good for any reason
 	if (!file.good())	std::cout << "ERROR" << '\n';
 	else
 	{
+		//deconstruct before usage
+		BarData.clear();
 
 		//skip header record
 		std::string s;
@@ -227,7 +241,11 @@ void BarChartAvgOverUnder::loadData(std::string fileName)
 
 void BarChartAvgOverUnder::setDisplayCount(int adj) {
 	if (((displayCount + adj) <= (totalCount - 1)) & ((displayCount + adj) >0)) displayCount += adj;
-	barWidth = ((ofGetWidth() - (xOffset * 2)) - (displayCount * xBarPad)) / displayCount;
+
+	std::cout << xBarPad << endl;
+	std::cout << barWidth << endl;
+	std::cout << displayCount << endl;
+
 }
 
 void BarChartAvgOverUnder::updateMouse(int mouseX, int mouseY)

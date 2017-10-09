@@ -31,10 +31,10 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-	if (key == OF_KEY_UP)			barChartData.setDisplayCount(1);
-	else if (key == OF_KEY_DOWN)	barChartData.setDisplayCount(-1);
-	else if (key == OF_KEY_RIGHT)	barChartData.setDisplayCount(5);
-	else if (key == OF_KEY_LEFT)	barChartData.setDisplayCount(-5);
+	if ((key == OF_KEY_UP) & (barChartData.barWidth > 1))			barChartData.setDisplayCount(1);
+	else if (key == OF_KEY_DOWN)									barChartData.setDisplayCount(-1);
+	else if ((key == OF_KEY_RIGHT) & (barChartData.barWidth > 1))	barChartData.setDisplayCount(5);
+	else if (key == OF_KEY_LEFT)									barChartData.setDisplayCount(-5);
 }
 
 //--------------------------------------------------------------
