@@ -1,7 +1,6 @@
 #include "BarChartAvgOverUnder.h"
 
 
-
 BarChartAvgOverUnder::BarChartAvgOverUnder()
 {
 }
@@ -176,13 +175,18 @@ void BarChartAvgOverUnder::displayValue(float rectX, float rectY, float barWidth
 
 void BarChartAvgOverUnder::loadData(std::string fileName)
 {
-
-
+    
+    //print relative file path for debug
+    //std::cout << "..//bin//data//" + fileName << std::endl;
+    
+    //load file
+    //std::ifstream file("..//bin//data//" + fileName);
+    
 	//print relative file path for debug
-	std::cout << "../bin/data/" + fileName << std::endl;
+	std::cout << "..//..//..//..//bin//data//" + fileName << std::endl;
 
 	//load file
-	std::ifstream file("../bin/data/" + fileName);
+	std::ifstream file("..//..//..//..//bin//data//" + fileName);
 
 	//display Error text if file not good for any reason
 	if (!file.good())	std::cout << "ERROR" << '\n';
