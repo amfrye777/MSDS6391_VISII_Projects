@@ -172,7 +172,7 @@ function mouseMoved(event){
 }
 
 function reSize() {
-	resizeCanvas(window.innerWidth, window.innerHeight / 2);
+	resizeCanvas(window.innerWidth, window.innerHeight / 2.5);
 	
 	hypCenter.setLoc((width / 2),		(height / 2));
 	hypTopLeft.setLoc((width / 5),		(height / 5));
