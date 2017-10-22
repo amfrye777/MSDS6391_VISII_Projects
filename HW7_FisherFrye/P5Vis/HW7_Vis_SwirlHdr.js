@@ -2,7 +2,7 @@ var hypTinyMovers = []
 hypTinyMovers.length = 30
 
 function setup() {
-	var swirlCanvas = createCanvas(window.innerWidth, window.innerHeight / 2.5); // /3
+	var swirlCanvas = createCanvas(window.innerWidth, window.innerHeight / 2.5); 
 	swirlCanvas.parent('swirlCanvas');
 
 	if(width<=height){
