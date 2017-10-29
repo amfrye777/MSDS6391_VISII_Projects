@@ -15,7 +15,59 @@
   "Job Title": "Database Developer III",
   "Start Date": "May 2016",
   "End Date": "Oct 2017",
-  "Job Description":  [""]
+  "Job Description":  null
+},
+{
+  "Person": "Alex Frye",
+  "Job Title": "Business Analyst II",
+  "Start Date": "Sept 2015",
+  "End Date": "May 2016",
+  "Job Description":  [{
+                      "SubLabel": "Revenue Management - Financial Planning & Analysis",
+                      "SubDesc": [
+                                  "Created Business & Functional Requirement documentation to support various revenue applications which enabled business users to manage Rebate Incentive programs, Pricing analytics, & ultimately arrive at transactional-level profitability metrics",
+                                  "Facilitated extensive user training to enable proper usage of Revenue applications",
+                                  "Facilitated a requirement workshop to provide implementation guidance & gap analysis for new business unit to integrate into rebate application",
+                                  "Support business needs through detailed data analytics & reporting initiatives"
+                                  ]
+                              },
+                      {
+                      "SubLabel": "Secure Supply Chain (Drug Serialization)",
+                      "SubDesc":  [
+                                  "Supported the Pilot program for implementing new processes to remain compliant due to the Drug Supply Chain Security Act (DSCSA).",
+                                  "Facilitated requirement workshops to identify as is & to be processes in the distribution centers participating in Pilot Programs"
+                                  ]
+                              }
+                      ]
+},
+{
+  "Person": "Alex Frye",
+  "Job Title": "Business Analyst I",
+  "Start Date": "June 2014",
+  "End Date": "Sept 2015",
+  "Job Description":  null
+},
+{
+  "Person": "Alex Frye",
+  "Job Title": "Client Services Associate Team Lead",
+  "Start Date": "January 2014",
+  "End Date": "June 2014",
+  "Job Description":  [
+                      "Primary contact for 10 clients (partnerships) and responsible for making sure investor ownership & K-1 Tax Forms are reported and mailed out correctly.",
+                      "Created various SQL queries/reports in order to help clients cut costs, reduce call center backlog, and provide transparency to clients regarding their investor data.",
+                      "Took initiatives to standardize best practices for e-file Test Plans & Summary Documentation."
+                      ]
+},
+{
+  "Person": "Alex Frye",
+  "Job Title": "IT Intern - Business Analyst",
+  "Start Date": "May 2013",
+  "End Date": "August 2013",
+  "Job Description":  [
+                      "Elicited information and created process flow diagrams to document financial processes, resulting in process improvements",
+                      "Created a decision analysis document to aide business & internal IT in selecting a project development approach",
+                      "Facilitated Business Functional Requirements Document (BFRD)/Process documentation reviews"
+                      ]
 }
 
 ]
