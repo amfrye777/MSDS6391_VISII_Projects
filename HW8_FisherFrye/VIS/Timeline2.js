@@ -48,7 +48,7 @@
                               "highest levels of service quality and client/patient satisfaction by planning, organizing and executing",
                               "activities to maximize organization profits, employee performance and operations efficiency."
                             ]
-      },
+      }
       
       ]`
     
@@ -132,7 +132,7 @@ function TimeLineDraw(ctx, width, height){
             `;
 
             if(data[i]["Job Description"] != null){
-                if(data[i]["Job Title"] == "Sales Representative"){
+                if(data[i]["Job Title"] == "DoubleLevelJobTitle"){
                     for(var j=0; j<data[i]["Job Description"].length; j++){
                         document.getElementById('Work ExperienceJS').innerHTML += `<u> ` + data[i]["Job Description"][j]["SubLabel"] + `</u>
                         `;
