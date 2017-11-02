@@ -14,12 +14,7 @@
         "Start Date": "June 2016",
         "End Date": "August 2017",
         "Job Description":  [
-                              "As Marketing Manager at ChemicalInfo, top priorities are analyzing strengths",
-                              "and weaknesses of all products and building meaningful marketing content from",
-                              "product data, customer feedback, and user experience data. Contribute to the team",
-                              "effort by supporting the Vice President of marketing and assisting new sales team",
-                              "in all out-bound marketing initiatives. Manage, measure, and analyze marketing operations",
-                              "and performance in order to create updated marketing and sales materials and content for each product." 
+                              "As Marketing Manager at ChemicalInfo, top priorities are analyzing strengths and weaknesses of all products and building meaningful marketing content from product data, customer feedback, and user experience data. Contribute to the team effort by supporting the Vice President of marketing and assisting new sales team in all out-bound marketing initiatives. Manage, measure, and analyze marketing operations and performance in order to create updated marketing and sales materials and content for each product."
                             ]
       },
       {
@@ -28,13 +23,7 @@
         "Start Date": "December 2015",
         "End Date": "May 2016",
         "Job Description":  [
-                              "As Product Marketing Specialist at ChemicalInfo, worked with sales and marketing teams and focused",
-                              "specifically on the development of the PathFinder database—a SaaS based product developed as a sales",
-                              "and marketing lead generation tool for global users in the chemical and pharmaceutical industries.",
-                              "Supported the Director of Marketing in trade show preparation, leveraging SalesForce for sales pattern",
-                              "analysis, email marketing campaigns, and ad hoc market research projects. Analyzed customer satisfaction",
-                              "survey feedback and trends, as well as user experience data, to generate customer needs analysis for",
-                              "the PathFinder product."
+                              "As Product Marketing Specialist at ChemicalInfo, worked with sales and marketing teams and focused specifically on the development of the PathFinder database—a SaaS based product developed as a sales and marketing lead generation tool for global users in the chemical and pharmaceutical industries. Supported the Director of Marketing in trade show preparation, leveraging SalesForce for sales pattern analysis, email marketing campaigns, and ad hoc market research projects. Analyzed customer satisfaction survey feedback and trends, as well as user experience data, to generate customer needs analysis for the PathFinder product."
                             ]
       },
       {
@@ -43,10 +32,7 @@
         "Start Date": "June 2012",
         "End Date": "June 2015",
         "Job Description":  [
-                              "As the Operations Administrator, functioned as Operations Head, Office Manager, Human Resources and",
-                              "Payroll Administrator to staff of 10 office employees and 8-12 independent contractors. Maintained",
-                              "highest levels of service quality and client/patient satisfaction by planning, organizing and executing",
-                              "activities to maximize organization profits, employee performance and operations efficiency."
+                              "As the Operations Administrator, functioned as Operations Head, Office Manager, Human Resources and Payroll Administrator to staff of 10 office employees and 8-12 independent contractors. Maintained highest levels of service quality and client/patient satisfaction by planning, organizing and executing activities to maximize organization profits, employee performance and operations efficiency."
                             ]
       }
       
