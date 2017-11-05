@@ -5,7 +5,7 @@
   "End Date": "Present",
   "Job Description":  [
                         "Lead T-SQL Database Development responsible for design, estimate, and development for a small team supporting Revenue Management Applications.",
-                        "Develop Tables, Views, Procedures, Triggers, Jobs, SSIS, etc. in a SQL 2008 Datawarehouse Environment, with exposure to SQL 2014.",
+                        "Develop Tables, Views, Procedures, Triggers, Jobs, SSIS, etc. in a SQL 2008 R2 Datawarehouse Environment, with exposure to SQL 2014.",
                         "Development Experience creating SQL objects to support .NET Applications",
                         "Lead restructure of TFS utilization during Migration from 2010 to 2017, allowing usage of Kanban boards to support our product backlog"
                       ]
