@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    
+    p {
+        /* setting default style */
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 0;
+        margin-right: 0;
+        font-family: Arial;
+        font: 10.5px arial, sans-serif;
+        color: black;
+        text-align: center; 
+    }
+    p.TitleText {
+        /* setting paragraph style for class TitleText */
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 0;
+        margin-right: 0;
+        color: black;
+        background: white;
+        font-size: 36px;
+        font-weight: normal;
+        font-style: italic; 
+        font-family: Arial;
+        text-align: center;
+    }
+    p.ContactInfo {
+        /* setting paragraph style for class ContactInfo */
+        color: black;
+        font-size: 16px;
+        font-weight: normal;
+        font-family: Arial;   
+        text-align: center;     
+    }
+    p.SectionHdr {
+        /* setting paragraph style for class SectionHdr */
+        color:#C00000;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Arial; 
+        text-align: left;                     
+    }
+    p.ExpTitle {
+        /* setting paragraph style for class ExpTitle */
+        display: block;
+        color: black;
+        font-size: 11.5pt;
+        line-height: 100%;
+        font-weight: bold;
+        font-family: Arial; 
+        text-align: left;          
+    }
+    p.ExpDates {
+        /* setting paragraph style for class ExpDates */
+        color: black;
+        font-size: 11.5pt;
+        line-height: 100%;
+        font-weight: normal;
+        font-style: italic;
+        font-family: Arial;  
+    }
+    p.ExpText {
+        /* setting paragraph style for class ExpText */
+        color: black;
+        font-size: 9.5pt;
+        line-height: 120%;
+        font-weight: normal;
+        font-family: Arial;         
+    }
+    p.GenText {
+        /* setting paragraph style for class GenText */
+        color: black;
+        font-size: 10.5pt;
+        line-height: 120%;
+        font-weight: normal;
+        font-family: Arial;           
+    }
+    body {
+        background-color: #ffffff;
+    }
+
+    </style>
+</head>
+
+<body>
+    <!--- link to d3 lib--->
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    
+    <!--- JS and d3 code between script tags--->
+    <script>
+    var svg = d3.select("body")
+    
+        .append("p")
+        .text("Alex Frye, ITILv3")
+        
+        .append("p")
+        .attr("class", "ContactInfo")
+        .text("469-525-9215 | alex.frye777@gmail.com | linkedin.com/in/alexfrye")
+        
+        .append("p")
+        .attr("class", "SectionHdr")
+        .text("WORK EXPERIENCE")
+        
+        .append("p")
+        .attr("class", "ExpTitle")
+        .text("Business Analyst I");
+        
+        .append("p")
+        .style("font-style", "italic")
+        .attr("class", "ExpTitle")
+        .text("Amerisource Bergen")
+
+        .append("p")
+        .attr("class", "ExpDates")
+        .text("June 2014 to September 2015")
+
+    </script>
+
+</body>
+</html>
