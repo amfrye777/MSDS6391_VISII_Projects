@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.node rect {
+  cursor: pointer;
+  fill: #fff;
+  fill-opacity: 0.5;
+  stroke: #12a565;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+.link {
+  fill: none;
+  stroke: #27ef98;
+  stroke-width: 1.5px;
+}
+
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+    
+    p {
+        /* setting default text style for header */
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 0;
+        margin-right: 0;
+        font-family: "Arial";
+        font-size: 12px;
+        color: black;
+        text-align: center; 
+    }
+    p.TitleText {
+        /* setting paragraph style for class TitleText */
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 0;
+        margin-right: 0;
+        color: black;
+        font-size: 36px;
+        font-family: "Arial";
+    }
+    </style>
+</head>
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var svg = d3.select("body")
+        .append("p")
+        .attr("class", "TitleText")
+        .text("Alexandra Fisher")
+        
+        .append("p")
+        .text("214-415-2728 | alexandranfisher@gmail.com | linkedin.com/in/alexandranfisher")
+
+var margin = {top: 30, right: 20, bottom: 30, left: 20},
+    width = 960,
+    barHeight = 20,
+    barWidth = (width - margin.left - margin.right) * 0.8;
+
+var i = 0,
+    duration = 400,
+    root;
+
+var diagonal = d3.linkHorizontal()
+    .x(function(d) { return d.y; })
+    .y(function(d) { return d.x; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width) // + margin.left + margin.right)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.json("jobhistory.json", function(error, job) {
+  if (error) throw error;
+  root = d3.hierarchy(job);
+  root.x0 = 0;
+  root.y0 = 0;
+  update(root);
+});
+
+function update(source) {
+
+  /* flattened node list computation */
+  var nodes = root.descendants();
+
+  var height = Math.max(500, nodes.length * barHeight + margin.top + margin.bottom);
+
+  d3.select("svg").transition()
+      .duration(duration)
+      .attr("height", height);
+
+  d3.select(self.frameElement).transition()
+      .duration(duration)
+      .style("height", height + "px");
+
+  /* layout computation */
+  var index = -1;
+  root.eachBefore(function(n) {
+    n.x = ++index * barHeight;
+    n.y = n.depth * 20;
+  });
+
+  /* update nodes */
+  var node = svg.selectAll(".node")
+    .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  var nodeEnter = node.enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      .style("opacity", 0);
+
+  /* insert new nodes at parent previous position */
+  nodeEnter.append("rect")
+      .attr("y", -barHeight / 2)
+      .attr("height", barHeight)
+      .attr("width", barWidth)
+      .style("fill", color)
+      .on("click", click);
+
+  nodeEnter.append("text")
+      .attr("dy", 3.5)
+      .attr("dx", 5.5)
+      .text(function(d) { return d.data.name; });
+
+  /* move nodes to new position */
+  nodeEnter.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+      .style("opacity", 1);
+
+  node.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+      .style("opacity", 1)
+    .select("rect")
+      .style("fill", color);
+
+  /* move nodes exiting to parent new position */
+  node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+      .style("opacity", 0)
+      .remove();
+
+  /* update links */
+  var link = svg.selectAll(".link")
+    .data(root.links(), function(d) { return d.target.id; });
+
+  /* insert new links at parent previous position */
+  link.enter().insert("path", "g")
+      .attr("class", "link")
+      .attr("d", function(d) {
+        var o = {x: source.x0, y: source.y0};
+        return diagonal({source: o, target: o});
+      })
+    .transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+  /* move links to new position */
+  link.transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+  /* move nodes exiting to parent new position */
+  link.exit().transition()
+      .duration(duration)
+      .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};
+        return diagonal({source: o, target: o});
+      })
+      .remove();
+
+  /* store old positions for moves/transitions */
+  root.each(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+}
+
+/* toggle children by clicking mouse */
+function click(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+  update(d);
+}
+
+function color(d) {
+// #fd8d3c
+  return d._children ? "#12a565" : d.children ? "#00eaa0" : "#e0f7ff";
+}
+
+</script>

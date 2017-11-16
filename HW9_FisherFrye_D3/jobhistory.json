@@ -1,0 +1,68 @@
+{
+ "name": "Job History",
+ "children": [
+  {
+   "name": "Saas Sales Specialist",
+   "children": [
+    {"name": "Yodle a Web.com Company"},
+    {"name": "September 2017 to Present"},
+    {
+     "name": "Skills",
+     "children": [
+      {"name": "Software Sales", "size": 7074},
+      {"name": "Business Communication", "size": 7074}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Marketing Manager",
+   "children": [
+    {"name": "ChemicalInfo", "size": 17010},
+    {"name": "June 2016 to August 2017", "size": 5842},
+    {
+     "name": "Skills",
+     "children": [
+      {"name": "Marketing Data Analytics", "size": 1983},
+      {"name": "Business Communication", "size": 2047},
+      {"name": "Data Analytics", "size": 1382},
+      {"name": "Marketing Content Design", "size": 1629},
+      {"name": "Market Research", "size": 1675},
+      {"name": "Customer Service", "size": 2042}
+     ]
+    }
+   ] 
+  },
+  {
+   "name": "Product Marketing Specialist",
+   "children": [
+    {"name": "ChemicalInfo", "size": 3331},
+    {"name": "December 2015 to May 2016", "size": 772},
+    {
+     "name": "Skills",
+     "children": [
+     {"name": "Product Marketing", "size": 586},
+     {"name": "Market Research", "size": 586},
+     {"name": "Data Analytics", "size": 586}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Office Administrator & Logistics Coordinator",
+   "children": [
+    {"name": "Paragon Ambulatory Health Resources", "size": 8833},
+    {"name": "June 2012 to July 2015", "size": 1732},
+    {
+     "name": "Skills",
+     "children": [
+      {"name": "Project Management", "size": 586},
+      {"name": "Leadership", "size": 721},
+      {"name": "Logistics", "size": 721},
+      {"name": "Customer Service", "size": 3322}
+     ]
+    }
+   ]
+  }
+ ]
+}
