@@ -3080,3 +3080,22 @@
     margin-right: auto;
     display: block;
 }
+
+.node rect {
+	cursor: pointer;
+	fill: #fff;
+	fill-opacity: 0.5;
+	stroke: #6280BF;
+	stroke-width: 1.5px;
+  }
+  
+  .node text {
+	font: 10px sans-serif;
+	pointer-events: none;
+  }
+  
+  .link {
+	fill: none;
+	stroke: #27ef98;
+	stroke-width: 1.5px;
+  }

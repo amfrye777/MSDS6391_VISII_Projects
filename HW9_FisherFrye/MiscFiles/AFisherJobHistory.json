@@ -1,38 +1,68 @@
-[{
-  "Person": "Alexandra Fisher",
-  "Job Title": "Sales Representative",
-  "Start Date": "September 2017",
-  "End Date": "Present",
-  "Job Description":  [
-                        "Saas software sales specialist at Lighthouse 360 a Yodle/Web.com company."
-                      ]
-},
 {
-  "Person": "Alexandra Fisher",
-  "Job Title": "Marketing Manager",
-  "Start Date": "June 2016",
-  "End Date": "August 2017",
-  "Job Description":  [
-                        "As Marketing Manager at ChemicalInfo, top priorities are analyzing strengths and weaknesses of all products and building meaningful marketing content from product data, customer feedback, and user experience data. Contribute to the team effort by supporting the Vice President of marketing and assisting new sales team in all out-bound marketing initiatives. Manage, measure, and analyze marketing operations and performance in order to create updated marketing and sales materials and content for each product."
-                      ]
-},
-{
-  "Person": "Alexandra Fisher",
-  "Job Title": "Product Marketing Specialist",
-  "Start Date": "December 2015",
-  "End Date": "May 2016",
-  "Job Description":  [
-                        "As Product Marketing Specialist at ChemicalInfo, worked with sales and marketing teams and focused specifically on the development of the PathFinder database—a SaaS based product developed as a sales and marketing lead generation tool for global users in the chemical and pharmaceutical industries. Supported the Director of Marketing in trade show preparation, leveraging SalesForce for sales pattern analysis, email marketing campaigns, and ad hoc market research projects. Analyzed customer satisfaction survey feedback and trends, as well as user experience data, to generate customer needs analysis for the PathFinder product."
-                      ]
-},
-{
-  "Person": "Alexandra Fisher",
-  "Job Title": "Operations Administrator, Logistics Coordinator",
-  "Start Date": "June 2012",
-  "End Date": "June 2015",
-  "Job Description":  [
-                        "As the Operations Administrator, functioned as Operations Head, Office Manager, Human Resources and Payroll Administrator to staff of 10 office employees and 8-12 independent contractors. Maintained highest levels of service quality and client/patient satisfaction by planning, organizing and executing activities to maximize organization profits, employee performance and operations efficiency."
-                      ]
-}
-
-]
+  "name": "Job History",
+  "children": [
+   {
+    "name": "Saas Sales Specialist",
+    "children": [
+     {"name": "Yodle a Web.com Company"},
+     {"name": "September 2017 to Present"},
+     {
+      "name": "Skills",
+      "children": [
+       {"name": "Software Sales", "size": 7074},
+       {"name": "Business Communication", "size": 7074}
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Marketing Manager",
+    "children": [
+     {"name": "ChemicalInfo", "size": 17010},
+     {"name": "June 2016 to August 2017", "size": 5842},
+     {
+      "name": "Skills",
+      "children": [
+       {"name": "Marketing Data Analytics", "size": 1983},
+       {"name": "Business Communication", "size": 2047},
+       {"name": "Data Analytics", "size": 1382},
+       {"name": "Marketing Content Design", "size": 1629},
+       {"name": "Market Research", "size": 1675},
+       {"name": "Customer Service", "size": 2042}
+      ]
+     }
+    ] 
+   },
+   {
+    "name": "Product Marketing Specialist",
+    "children": [
+     {"name": "ChemicalInfo", "size": 3331},
+     {"name": "December 2015 to May 2016", "size": 772},
+     {
+      "name": "Skills",
+      "children": [
+      {"name": "Product Marketing", "size": 586},
+      {"name": "Market Research", "size": 586},
+      {"name": "Data Analytics", "size": 586}
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Office Administrator & Logistics Coordinator",
+    "children": [
+     {"name": "Paragon Ambulatory Health Resources", "size": 8833},
+     {"name": "June 2012 to July 2015", "size": 1732},
+     {
+      "name": "Skills",
+      "children": [
+       {"name": "Project Management", "size": 586},
+       {"name": "Leadership", "size": 721},
+       {"name": "Logistics", "size": 721},
+       {"name": "Customer Service", "size": 3322}
+      ]
+     }
+    ]
+   }
+  ]
+ }
