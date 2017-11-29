@@ -31,13 +31,18 @@ SkillsPi = function(data){
     var TechSkillsD3 = d3.select("section#main").select("div.inner").select("div#TechSkillsD3");
 
     var svg = TechSkillsD3
+        .append("table").append("tr").append("td")
         .append("svg")
         .style("float", "left")
         .attr("width", VisSizeLength)    //Square the size of half the width of the screen
         .attr("height", VisSizeLength)   //Square the size of half the width of the screen
-        .style("vertical-align", "bottom")
+        //.style("vertical-align", "top")
         .append("g")
         .attr("transform", "translate(" + VisSizeLength/2 + "," + VisSizeLength/2 + ")");
+
+    
+    var SkillsCol2 = TechSkillsD3
+                    .select("table").select("tr").append("td").style("vertical-align","top");
 
     var pie = d3.pie()
         .sort(null)
@@ -65,9 +70,9 @@ SkillsPi = function(data){
             d3.select(this).transition().duration(500)
             .attr("d", arcOver);
 
-            TechSkillsD3.selectAll("#SelectedSkill").remove();
+            SkillsCol2.selectAll("#SelectedSkill").remove();
 
-            TechSkillsD3
+            SkillsCol2
             .append("h3")
             .attr("id", "SelectedSkill")
             .style("width", window.innerWidth*.4)
@@ -77,9 +82,9 @@ SkillsPi = function(data){
             .style("padding-left", "10%")
             .text(d.data.Skill);
 
-            TechSkillsD3.append("br").attr("id", "SelectedSkill")
+            SkillsCol2.append("br").attr("id", "SelectedSkill")
 
-            TechSkillsD3
+            SkillsCol2
             .append("p")
             .attr("id", "SelectedSkill")
             .style("width", window.innerWidth*.4)
@@ -96,7 +101,7 @@ SkillsPi = function(data){
             d3.select(this).transition().duration(500)
             .attr("d", arc);
             
-            TechSkillsD3.selectAll("#SelectedSkill")
+            SkillsCol2.selectAll("#SelectedSkill")
             .transition().duration(500)
             .style("padding-left", "50%")
             .remove();
@@ -144,6 +149,5 @@ SkillsPi = function(data){
         .attr('y', legendRectSize)
         .text(function(d){return d.data.Skill;})
         .style("font-size", legendRectSize);
-    
-    // TechSkillsD3.append("div").style("clear", "both");
+        
 }
