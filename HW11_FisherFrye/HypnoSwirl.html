@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<script src = "libraries/p5.min.js"> </script>
+<script src = "Vis\HW7_Vis_SwirlHdr.js?v=10222017" > </script>
+<script src = "Vis\HypnoSwirl.js?v=10222017"> </script>
+<title> P5 Visualization for HW 7 </title>
+<link rel="stylesheet" href="assets/css/main.css?v=10222017" />
+<style> body{padding:0; margin:0; width:  100%; height: 100%;} </style>
+</head>
+
+<body class = "subpage" onresize="reSize()">
+    <!-- Header -->
+    <header id="header">
+            <div class="inner">
+                <a href="index.html" class="logo">Portfolio</a>
+                <nav id="nav">
+                        <a href="index.html">Home</a>
+                        <a href="HypnoSwirl.html">P5 Swirl</a>
+                        <a href="">Coming Soon</a>
+                </nav>
+                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+            </div>
+        </header>
+    <div id="swirlCanvas" onmousemove="mouseMoved(event)"></div>
+
+    <!-- Footer -->
+    <footer id="footer">
+            <div class="inner">
+                <div class="flex">
+                    <div class="copyright">
+                        &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+                    </div>
+                    <ul class="icons">
+                        <li><a href="https://github.com/amfrye777/MSDS6391_VISII_Projects" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+</body>
+
+</html>

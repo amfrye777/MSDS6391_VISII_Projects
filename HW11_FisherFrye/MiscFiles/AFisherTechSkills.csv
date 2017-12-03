@@ -1,0 +1,10 @@
+Skill,PercentValue,Description
+T-SQL,50,T-SQL Experience Descriptions go here from the csv file. This text is encoded to the file as a placeholder for real data entry.
+SSIS,50,SSIS Experience Descriptions go here from the csv file. This text is encoded to the file as a placeholder for real data entry.
+Python,50,Python Experience Descriptions go here from the csv file. This text is encoded to the file as a placeholder for real data entry.
+.NET(C#/ASP.NET),50,.NET(C#/ASP.NET) Experience Descriptions go here from the csv file. This text is encoded to the file as a placeholder for real data entry.
+Processing,80,Processing Experience Descriptions go here from the csv file. This text is encoded to the file as a placeholder for real data entry.
+R,60,R Experience Descriptions go here from the csv file. This text is encoded to the file as a placeholder for real data entry.
+HTML/CSS,80,HTML/CSS Experience Descriptions go here from the csv file. This text is encoded to the file as a placeholder for real data entry.
+OpenFrameworks,60,OpenFrameworks Experience Descriptions go here from the csv file. This text is encoded to the file as a placeholder for real data entry.
+SAS,80,SAS Experience Descriptions go here from the csv file. This text is encoded to the file as a placeholder for real data entry.
